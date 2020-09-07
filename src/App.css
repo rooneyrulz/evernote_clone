@@ -1,0 +1,68 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* Header Styles */
+
+.app__header {
+    position: relative;
+    width: 100%;
+    min-height: 10vh;
+    background: rgb(49, 49, 121);
+    box-shadow: 1px 1px 2px #111;
+}
+
+.nav {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    margin: 0 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav__header {}
+
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 10px;
+}
+
+
+/* Main Styles */
+
+.app__main {
+    width: 90%;
+    min-height: 80vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Footer Styles */
+
+.app__footer {
+    width: 90%;
+    min-height: 10vh;
+    margin: auto;
+    border-top: 1px #111 solid;
+}
