@@ -6,10 +6,16 @@ import './Auth.css';
 
 const Login = (props) => {
   const [formData, setFormData] = React.useState({ email: '', password: '' });
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      user && props.history.push('/');
+      if (user) {
+        props.history.push('/');
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
     });
   }, []);
 
@@ -29,7 +35,9 @@ const Login = (props) => {
     }
   };
 
-  return (
+  return loading ? (
+    <div>loading...</div>
+  ) : (
     <div className='login'>
       <h2 className='auth__heading'>Sign In</h2>
       <form className='auth__form' onSubmit={(e) => onRegister(e)}>
