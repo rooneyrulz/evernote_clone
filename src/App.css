@@ -66,3 +66,7 @@ body {
     margin: auto;
     border-top: 1px #111 solid;
 }
+
+.footer__text {
+    color: #333;
+}

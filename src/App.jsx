@@ -6,6 +6,7 @@ import './App.css';
 
 // Layouts
 import AppHeader from './layouts/AppHeader';
+import AppFooter from './layouts/AppFooter';
 
 // Pages
 import Dashboard from './pages/Dashboard';
@@ -43,7 +44,9 @@ const App = (props) => {
             <Route exact path='/sign-up' component={Register} />
           </Switch>
         </main>
-        <footer className='app__footer'></footer>
+        <footer className='app__footer'>
+          <AppFooter />
+        </footer>
       </>
     </BrowserRouter>
   );

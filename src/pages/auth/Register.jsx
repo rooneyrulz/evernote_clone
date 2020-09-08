@@ -55,7 +55,7 @@ const Register = (props) => {
       </form>
       <p className='auth__help__text'>
         If you already have an account, <br /> Let's sign in{' '}
-        <Link to='/sign-up'>here</Link>
+        <Link to='/sign-in'>here</Link>
       </p>
     </div>
   );
