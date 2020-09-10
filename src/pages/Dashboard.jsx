@@ -1,27 +1,15 @@
 import React from 'react';
-import firebase from '../config/firebase.config';
+import AuthContext from '../context/AuthContext';
 
 const Dashboard = (props) => {
-  const [userData, setUserData] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
+  const { isAuthenticated } = React.useContext(AuthContext);
 
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (!user) {
-        setUserData(null);
-        setLoading(false);
-        props.history.push('/sign-in');
-      } else {
-        setUserData(user.email);
-        setLoading(false);
-      }
-    });
-  }, []);
+  !isAuthenticated && props.history.push('/sign-in');
 
   return (
     <div className='dashboard'>
       <h2>Dashboard</h2>
-      <p>{userData}</p>
+      <p>{}</p>
     </div>
   );
 };

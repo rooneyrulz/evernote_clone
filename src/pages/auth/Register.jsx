@@ -1,43 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import firebase from '../../config/firebase.config';
+import AuthContext from '../../context/AuthContext';
 import './Auth.css';
 
 const Register = (props) => {
+  const { isAuthenticated, registerUser } = React.useContext(AuthContext);
   const [formData, setFormData] = React.useState({ email: '', password: '' });
-  const [loading, setLoading] = React.useState(true);
 
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        props.history.push('/');
-        setLoading(false);
-      } else {
-        setLoading(false);
-      }
-    });
-  }, []);
+  isAuthenticated && props.history.push('/');
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.id]: e.target.value });
 
   const onRegister = async (e) => {
     e.preventDefault();
-    try {
-      const res = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(formData.email, formData.password);
-      console.log(res);
-      props.history.push('/');
-    } catch (error) {
-      throw error.message;
-    }
+    registerUser(formData, props.history);
   };
 
-  return loading ? (
-    <div>loading...</div>
-  ) : (
+  return (
     <div className='register'>
       <h2 className='auth__heading'>Sign Up</h2>
       <form className='auth__form' onSubmit={(e) => onRegister(e)}>
@@ -47,6 +28,7 @@ const Register = (props) => {
           type='email'
           placeholder='Email'
           onChange={(e) => onChange(e)}
+          required
         />
         <br />
         <input
@@ -55,6 +37,7 @@ const Register = (props) => {
           type='password'
           placeholder='Password'
           onChange={(e) => onChange(e)}
+          required
         />
         <br />
         <button className='btn__auth' type='submit'>

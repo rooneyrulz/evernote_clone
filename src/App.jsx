@@ -1,9 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import firebase from './config/firebase.config';
-import './App.css';
-
 // Layouts
 import AppHeader from './layouts/AppHeader';
 import AppFooter from './layouts/AppFooter';
@@ -16,22 +13,15 @@ import Login from './pages/auth/Login';
 // Auth Context
 import AuthContext from './context/AuthContext';
 
-const App = (props) => {
-  // const { loading } = React.useContext(AuthContext);
-  const [loading, setLoading] = React.useState(true);
-  const [userData, setUserData] = React.useState(null);
+// Styles
+import './App.css';
+
+const App = () => {
+  const { loading, checkIsAuthenticated } = React.useContext(AuthContext);
 
   React.useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setUserData(user.email);
-        setLoading(false);
-      } else {
-        setUserData(null);
-        setLoading(false);
-      }
-    });
-  }, [loading]);
+    checkIsAuthenticated();
+  }, []);
 
   return loading ? (
     <div>Loading...</div>

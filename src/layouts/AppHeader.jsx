@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
-import firebase from '../config/firebase.config';
+import AuthContext from '../context/AuthContext';
 
 const AppHeader = (props) => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
-  React.useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
-      }
-    });
-  }, []);
-
-  const onSignOut = async (e) => {
-    try {
-      await firebase.auth().signOut();
-      // props.history.push('/sign-in');
-    } catch (error) {
-      throw error.message;
-    }
-  };
+  const { isAuthenticated, signOutUser } = React.useContext(AuthContext);
 
   return (
     <div className='nav'>
@@ -33,12 +14,16 @@ const AppHeader = (props) => {
         </Link>
       </div>
       <div className='nav__link__wrapper'>
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <>
             <NavLink className='nav__link' exact to='/'>
               Dashboard
             </NavLink>
-            <Link className='nav__link' to='' onClick={(e) => onSignOut(e)}>
+            <Link
+              className='nav__link'
+              to=''
+              onClick={(e) => signOutUser(props.history)}
+            >
               Sign Out
             </Link>
           </>
