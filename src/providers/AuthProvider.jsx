@@ -3,9 +3,9 @@ import AuthContext from '../context/AuthContext';
 
 const AuthProvider = (props) => {
   const [authData, setAuthData] = React.useState({
-    loading: false,
-    isAuthenticated: false,
-    user: {},
+    loading: true,
+    isAuthenticated: null,
+    user: null,
   });
   return (
     <AuthContext.Provider value={{ ...authData }}>
