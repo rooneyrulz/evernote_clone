@@ -2,9 +2,13 @@ import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import AuthContext from '../context/AuthContext';
+import { signOutUser } from '../actions/auth';
 
 const AppHeader = (props) => {
-  const { isAuthenticated, signOutUser } = React.useContext(AuthContext);
+  const {
+    authData: { isAuthenticated },
+    dispatch,
+  } = React.useContext(AuthContext);
 
   return (
     <div className='nav'>
@@ -22,7 +26,7 @@ const AppHeader = (props) => {
             <Link
               className='nav__link'
               to=''
-              onClick={(e) => signOutUser(props.history)}
+              onClick={(e) => signOutUser(dispatch, props.history)}
             >
               Sign Out
             </Link>

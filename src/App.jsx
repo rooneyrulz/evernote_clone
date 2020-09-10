@@ -12,16 +12,20 @@ import Login from './pages/auth/Login';
 
 // Auth Context
 import AuthContext from './context/AuthContext';
+import { loadUser } from './actions/auth';
 
 // Styles
 import './App.css';
 
 const App = () => {
-  const { loading, checkIsAuthenticated } = React.useContext(AuthContext);
+  const {
+    authData: { loading },
+    dispatch,
+  } = React.useContext(AuthContext);
 
   React.useEffect(() => {
-    checkIsAuthenticated();
-  }, []);
+    loadUser(dispatch);
+  }, [dispatch]);
 
   return loading ? (
     <div>Loading...</div>

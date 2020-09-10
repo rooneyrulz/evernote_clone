@@ -2,20 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import AuthContext from '../../context/AuthContext';
+import { registerUser } from '../../actions/auth';
 import './Auth.css';
 
 const Register = (props) => {
-  const { isAuthenticated, registerUser } = React.useContext(AuthContext);
+  const {
+    authData: { isAuthenticated },
+    dispatch,
+  } = React.useContext(AuthContext);
   const [formData, setFormData] = React.useState({ email: '', password: '' });
 
-  isAuthenticated && props.history.push('/');
+  if (isAuthenticated) props.history.push('/');
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.id]: e.target.value });
 
   const onRegister = async (e) => {
     e.preventDefault();
-    registerUser(formData, props.history);
+    registerUser(formData, dispatch, props.history);
   };
 
   return (
