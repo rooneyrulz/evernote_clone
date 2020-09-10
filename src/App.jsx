@@ -13,7 +13,12 @@ import Dashboard from './pages/Dashboard';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 
+// Auth Provider
+import AuthContext from './context/AuthContext';
+import AuthProvider from './providers/AuthProvider';
+
 const App = (props) => {
+  const authContext = React.useContext(AuthContext);
   const [loading, setLoading] = React.useState(true);
   const [userData, setUserData] = React.useState(null);
 
@@ -29,25 +34,29 @@ const App = (props) => {
     });
   }, [loading]);
 
+  console.log(`from App: ${authContext.loading}`);
+
   return loading ? (
     <div>Loading...</div>
   ) : (
     <BrowserRouter>
-      <>
-        <header className='app__header'>
-          <AppHeader />
-        </header>
-        <main className='app__main'>
-          <Switch>
-            <Route exact path='/' component={Dashboard} />
-            <Route exact path='/sign-in' component={Login} />
-            <Route exact path='/sign-up' component={Register} />
-          </Switch>
-        </main>
-        <footer className='app__footer'>
-          <AppFooter />
-        </footer>
-      </>
+      <AuthProvider>
+        <>
+          <header className='app__header'>
+            <AppHeader />
+          </header>
+          <main className='app__main'>
+            <Switch>
+              <Route exact path='/' component={Dashboard} />
+              <Route exact path='/sign-in' component={Login} />
+              <Route exact path='/sign-up' component={Register} />
+            </Switch>
+          </main>
+          <footer className='app__footer'>
+            <AppFooter />
+          </footer>
+        </>
+      </AuthProvider>
     </BrowserRouter>
   );
 };
