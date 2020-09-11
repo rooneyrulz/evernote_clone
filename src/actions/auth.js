@@ -11,9 +11,13 @@ import {
 
 export const loadUser = (dispatch) => {
     try {
-        const user = firebase.auth().currentUser;
-        console.log(`user: ${user.email}`);
-        dispatch({ type: USER_LOADED, payload: user.email });
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                dispatch({ type: USER_LOADED, payload: user.email });
+            } else {
+                dispatch({ type: AUTH_ERROR });
+            }
+        });
     } catch (error) {
         console.log(`AuthError: ${error.message}`);
         dispatch({ type: AUTH_ERROR });

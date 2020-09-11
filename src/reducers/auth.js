@@ -8,12 +8,6 @@ import {
     LOGOUT,
 } from '../actions/types';
 
-// const state = {
-//     loading: true,
-//     isAuthenticated: null,
-//     user: null,
-// };
-
 export default (state, action) => {
     const { type, payload } = action;
 
@@ -42,7 +36,7 @@ export default (state, action) => {
                 ...state,
                 loading: false,
                 isAuthenticated: false,
-                user: {},
+                user: null,
             };
 
         default:

@@ -3,7 +3,7 @@ import AuthContext from '../context/AuthContext';
 
 const Dashboard = (props) => {
   const {
-    authData: { isAuthenticated },
+    authData: { isAuthenticated, user },
   } = React.useContext(AuthContext);
 
   if (!isAuthenticated) props.history.push('/sign-in');
@@ -11,7 +11,7 @@ const Dashboard = (props) => {
   return (
     <div className='dashboard'>
       <h2>Dashboard</h2>
-      <p>{}</p>
+      {user && <p>{user}</p>}
     </div>
   );
 };
