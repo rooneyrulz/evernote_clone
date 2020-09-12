@@ -10,6 +10,10 @@ import Dashboard from './pages/Dashboard';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 
+// Components
+import PrivateRoute from './components/routing/PrivateRoute';
+import Spinner from './layouts/Spinner';
+
 // Auth Context
 import AuthContext from './context/AuthContext';
 import { loadUser } from './actions/auth';
@@ -28,7 +32,7 @@ const App = () => {
   }, [dispatch]);
 
   return loading ? (
-    <div>Loading...</div>
+    <Spinner />
   ) : (
     <BrowserRouter>
       <>
@@ -37,7 +41,7 @@ const App = () => {
         </header>
         <main className='app__main'>
           <Switch>
-            <Route exact path='/' component={Dashboard} />
+            <PrivateRoute exact path='/' component={Dashboard} />
             <Route exact path='/sign-in' component={Login} />
             <Route exact path='/sign-up' component={Register} />
           </Switch>
