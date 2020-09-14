@@ -15,7 +15,8 @@
     padding: 5px 10px;
     margin-bottom: 1rem;
     border-radius: 0.5em;
-    background: #eee;
+    color: #f4f4f4;
+    background: #6d3d6d;
 }
 
 
@@ -33,7 +34,8 @@
     padding: 5px 10px;
     margin-bottom: 1rem;
     border-radius: 0.5em;
-    background: #eee;
+    color: #f4f4f4;
+    background: #6d3d6d;
 }
 
 .btn__auth {
@@ -47,10 +49,14 @@
     margin-bottom: 1rem;
     border-radius: 0.5em;
     color: #fff;
-    background: rgb(49, 49, 121);
+    background: #4c2a4c;
 }
 
 .auth__help__text {
     text-align: center;
-    color: #333;
+    color: #f4f4f4;
+}
+
+.auth__help__text a {
+    color: #f4f4f4;
 }

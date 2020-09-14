@@ -11,8 +11,16 @@ body {
     font-size: 1rem;
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background: #553055;
     overflow-x: hidden;
 }
+
+
+/* export const bgColor = '#553055';
+export const primaryColor = '#4c2a4c';
+export const secondaryColor = '#6d3d6d';
+export const textColor = '#fff'; */
 
 
 /* Header Styles */
@@ -21,8 +29,8 @@ body {
     position: relative;
     width: 100%;
     min-height: 10vh;
-    background: rgb(49, 49, 121);
-    box-shadow: 1px 1px 2px #111;
+    background: #4c2a4c;
+    box-shadow: 1px 1px 4px #2c192c;
 }
 
 .nav {
@@ -64,9 +72,9 @@ body {
     width: 90%;
     min-height: 10vh;
     margin: auto;
-    border-top: 1px #111 solid;
+    border-top: 1px #4c2a4c solid;
 }
 
 .footer__text {
-    color: #333;
+    color: #fff;
 }

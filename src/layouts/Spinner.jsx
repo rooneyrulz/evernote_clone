@@ -12,7 +12,13 @@ const Spinner = () => {
         justifyContent: 'center',
       }}
     >
-      <img src={SpinnerGIF} alt='loading spinner' />
+      <img
+        style={{
+          width: '40px',
+        }}
+        src={SpinnerGIF}
+        alt='loading spinner'
+      />
     </div>
   );
 };
