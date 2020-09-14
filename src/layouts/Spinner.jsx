@@ -1,4 +1,5 @@
 import React from 'react';
+import SpinnerGIF from '../assets/Spinner.gif';
 
 const Spinner = () => {
   return (
@@ -11,7 +12,7 @@ const Spinner = () => {
         justifyContent: 'center',
       }}
     >
-      <span>Loading...</span>
+      <img src={SpinnerGIF} alt='loading spinner' />
     </div>
   );
 };
