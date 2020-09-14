@@ -9,7 +9,7 @@ export const noteStyles = {
     },
 
     newNoteContainer: {
-        margin: 'auto',
+        margin: '1rem auto',
         width: '100%',
     },
 
@@ -43,6 +43,7 @@ export const noteStyles = {
     noteItemContainer: {
         width: '100%',
         margin: 'auto',
+        overflowY: 'auto',
     },
 
     noteItem: {

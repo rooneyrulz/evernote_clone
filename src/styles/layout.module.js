@@ -2,7 +2,7 @@ export const layoutStyles = {
     appHeader: {
         position: 'relative',
         width: '100%',
-        minHeight: '10vh',
+        height: '10vh',
         background: '#4c2a4c',
         boxShadow: '1px 1px 4px #2c192c',
     },
@@ -45,7 +45,7 @@ export const layoutStyles = {
 
     appFooter: {
         width: '90%',
-        minHeight: '10vh',
+        height: '10vh',
         margin: 'auto',
         borderTop: '1px #4c2a4c solid',
     },

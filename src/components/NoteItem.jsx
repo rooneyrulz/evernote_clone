@@ -1,17 +1,22 @@
 import React from 'react';
 
+// Context
+import NoteContext from '../context/NoteContext';
+import { updateNote, removeNote } from '../actions/note';
+
 // Styles
 import { noteStyles } from '../styles/note.module';
 
 const NoteItem = ({ note }) => {
+  const { dispatch } = React.useContext(NoteContext);
   const [isEdit, setIsEdit] = React.useState(false);
   const [newNote, setNewNote] = React.useState({});
 
   const onHandleEdit = (e) => setIsEdit(true);
 
-  const onHandleUpdate = (e) => console.log(newNote);
+  const onHandleUpdate = (id) => updateNote(dispatch, id, newNote);
 
-  const onHandleDelete = (id) => console.info(id);
+  const onHandleDelete = (id) => removeNote(dispatch, id);
 
   const onHandleChange = (e) =>
     setNewNote({ ...newNote, [e.target.id]: e.target.value });
@@ -38,7 +43,7 @@ const NoteItem = ({ note }) => {
       </div>
       <div style={noteStyles.noteItemRight}>
         {isEdit ? (
-          <button onClick={(e) => onHandleUpdate(e)}>Update</button>
+          <button onClick={(e) => onHandleUpdate(note.id)}>Update</button>
         ) : (
           <button onClick={(e) => onHandleEdit(e)}>Edit</button>
         )}
