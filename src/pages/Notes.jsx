@@ -1,11 +1,22 @@
 import React from 'react';
 
-import NoteItem from '../components/NoteItem';
+// Context
 import NoteContext from '../context/NoteContext';
+import { getNotes } from '../actions/note';
+
+// Components
+import NoteItem from '../components/NoteItem';
 
 const Notes = () => {
-  const { notes } = React.useContext(NoteContext);
-  console.group(notes);
+  const {
+    everNote: { loading, notes },
+    dispatch,
+  } = React.useContext(NoteContext);
+
+  React.useEffect(() => {
+    getNotes(dispatch);
+  }, [dispatch, loading]);
+
   return (
     <div className='notes'>
       <h2>All the notes go on here..</h2>
