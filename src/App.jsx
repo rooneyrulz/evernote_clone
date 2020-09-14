@@ -4,15 +4,16 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Layouts
 import AppHeader from './layouts/AppHeader';
 import AppFooter from './layouts/AppFooter';
+import Spinner from './layouts/Spinner';
 
 // Pages
-import Dashboard from './pages/Dashboard';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
+import Dashboard from './pages/Dashboard';
+import Notes from './pages/Notes';
 
 // Components
 import PrivateRoute from './components/routing/PrivateRoute';
-import Spinner from './layouts/Spinner';
 
 // Auth Context
 import AuthContext from './context/AuthContext';
@@ -42,6 +43,7 @@ const App = () => {
         <main className='app__main'>
           <Switch>
             <PrivateRoute exact path='/' component={Dashboard} />
+            <Route exact path='/notes' component={Notes} />
             <Route exact path='/sign-in' component={Login} />
             <Route exact path='/sign-up' component={Register} />
           </Switch>
