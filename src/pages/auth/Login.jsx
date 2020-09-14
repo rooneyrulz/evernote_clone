@@ -25,7 +25,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className='login'>
+    <div className='login' style={authStyles.authContainer}>
       <h2 className='auth__heading' style={authStyles.authHeading}>
         Sign In
       </h2>

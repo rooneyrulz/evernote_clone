@@ -4,27 +4,31 @@ import React from 'react';
 import NoteContext from '../context/NoteContext';
 import { getNotes } from '../actions/note';
 
-// Components
+// Components & Layouts
 import NoteItem from '../components/NoteItem';
 import NewNote from '../components/NewNote';
+import Spinner from '../layouts/Spinner';
+
+// Styles
+import { noteStyles } from '../styles/note.module';
 
 const Notes = () => {
-  const {
-    everNote: { loading, notes },
-    dispatch,
-  } = React.useContext(NoteContext);
+  const { everNote, dispatch } = React.useContext(NoteContext);
 
   React.useEffect(() => {
     getNotes(dispatch);
-  }, [dispatch, loading]);
+  }, []);
 
   return (
-    <div className='notes'>
+    <div className='notes' style={noteStyles.noteContainer}>
       <NewNote />
-
-      {notes.map((note) => (
-        <NoteItem key={note.id} item={note} />
-      ))}
+      <div className='noteItemContainer' style={noteStyles.noteItemContainer}>
+        {everNote.loading ? (
+          <Spinner />
+        ) : (
+          everNote.notes.map((note) => <NoteItem key={note.id} note={note} />)
+        )}
+      </div>
     </div>
   );
 };

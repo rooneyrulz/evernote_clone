@@ -28,12 +28,8 @@ export const layoutStyles = {
 
     appMain: {
         width: '90%',
-        minHeight: '80vh',
+        height: '80vh',
         margin: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
 
     spinnerContainer: {

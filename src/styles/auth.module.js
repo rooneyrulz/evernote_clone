@@ -1,4 +1,14 @@
 export const authStyles = {
+    authContainer: {
+        width: '90%',
+        height: '80vh',
+        margin: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
     authHeading: {
         textAlign: 'center',
     },

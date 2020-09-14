@@ -25,7 +25,7 @@ const Register = (props) => {
   };
 
   return (
-    <div className='register'>
+    <div className='register' style={authStyles.authContainer}>
       <h2 className='auth__heading' style={authStyles.authHeading}>
         Sign Up
       </h2>
