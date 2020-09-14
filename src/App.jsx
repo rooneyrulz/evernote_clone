@@ -20,7 +20,8 @@ import AuthContext from './context/AuthContext';
 import { loadUser } from './actions/auth';
 
 // Styles
-import './App.css';
+import { layoutStyles } from './styles/layout.module';
+import './global.css';
 
 const App = () => {
   const {
@@ -37,10 +38,10 @@ const App = () => {
   ) : (
     <BrowserRouter>
       <>
-        <header className='app__header'>
+        <header className='app__header' style={layoutStyles.appHeader}>
           <AppHeader />
         </header>
-        <main className='app__main'>
+        <main className='app__main' style={layoutStyles.appMain}>
           <Switch>
             <PrivateRoute exact path='/' component={Dashboard} />
             <Route exact path='/notes' component={Notes} />
@@ -48,7 +49,7 @@ const App = () => {
             <Route exact path='/sign-up' component={Register} />
           </Switch>
         </main>
-        <footer className='app__footer'>
+        <footer className='app__footer' style={layoutStyles.appFooter}>
           <AppFooter />
         </footer>
       </>

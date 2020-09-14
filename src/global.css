@@ -1,0 +1,23 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background: #553055;
+    overflow-x: hidden;
+}
+
+
+/* export const bgColor = '#553055';
+export const primaryColor = '#4c2a4c';
+export const secondaryColor = '#6d3d6d';
+export const textColor = '#fff'; */

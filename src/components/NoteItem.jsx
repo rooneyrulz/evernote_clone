@@ -9,7 +9,7 @@ const NoteItem = () => {
         marginBottom: '1rem',
       }}
     >
-      <p>Note item</p>
+      <p>note item</p>
     </div>
   );
 };

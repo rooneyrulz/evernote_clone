@@ -6,6 +6,7 @@ import { getNotes } from '../actions/note';
 
 // Components
 import NoteItem from '../components/NoteItem';
+import NewNote from '../components/NewNote';
 
 const Notes = () => {
   const {
@@ -19,7 +20,7 @@ const Notes = () => {
 
   return (
     <div className='notes'>
-      <h2>All the notes go on here..</h2>
+      <NewNote />
 
       {notes.map((note) => (
         <NoteItem key={note.id} item={note} />

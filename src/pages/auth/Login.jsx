@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 import AuthContext from '../../context/AuthContext';
 import { loginUser } from '../../actions/auth';
-import './Auth.css';
+
+// Styles
+import { authStyles } from '../../styles/auth.module';
 
 const Login = (props) => {
   const {
@@ -24,14 +26,21 @@ const Login = (props) => {
 
   return (
     <div className='login'>
-      <h2 className='auth__heading'>Sign In</h2>
-      <form className='auth__form' onSubmit={(e) => onLogin(e)}>
+      <h2 className='auth__heading' style={authStyles.authHeading}>
+        Sign In
+      </h2>
+      <form
+        className='auth__form'
+        onSubmit={(e) => onLogin(e)}
+        style={authStyles.authForm}
+      >
         <input
           id='email'
           className='input__email'
           type='email'
           placeholder='Email'
           onChange={(e) => onChange(e)}
+          style={authStyles.inputEmail}
           required
         />
         <br />
@@ -41,16 +50,19 @@ const Login = (props) => {
           type='password'
           placeholder='Password'
           onChange={(e) => onChange(e)}
+          style={authStyles.inputPassword}
           required
         />
         <br />
-        <button className='btn__auth' type='submit'>
+        <button className='btn__auth' type='submit' style={authStyles.btnAuth}>
           Sign In
         </button>
       </form>
-      <p className='auth__help__text'>
+      <p className='auth__help__text' style={authStyles.authHelpText}>
         If you did not already have an account, <br /> Let's create one{' '}
-        <Link to='/sign-up'>here</Link>
+        <Link to='/sign-up' style={authStyles.authHelpTextLink}>
+          here
+        </Link>
       </p>
     </div>
   );
