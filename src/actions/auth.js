@@ -56,7 +56,6 @@ export const signOutUser = async(dispatch, history) => {
     try {
         await firebase.auth().signOut();
         dispatch({ type: LOGOUT });
-        history.push('/sign-in');
     } catch (error) {
         console.log(`Signout Error: ${error.message}`);
     }
