@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <div className='dashboard' style={dashboardStyles.dashboardContainer}>
       <h2>Dashboard</h2>
-      {user && <p>{user}</p>}
+      {user && <p>{user.email}</p>}
     </div>
   );
 };

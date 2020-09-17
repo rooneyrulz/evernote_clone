@@ -44,7 +44,7 @@ const App = () => {
         <main className='app__main' style={layoutStyles.appMain}>
           <Switch>
             <PrivateRoute exact path='/' component={Dashboard} />
-            <Route exact path='/notes' component={Notes} />
+            <PrivateRoute exact path='/notes' component={Notes} />
             <Route exact path='/sign-in' component={Login} />
             <Route exact path='/sign-up' component={Register} />
           </Switch>

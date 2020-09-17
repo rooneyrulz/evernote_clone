@@ -7,17 +7,10 @@ import {
     NOTE_ERROR,
 } from './types';
 
-const notes = [
-    { id: '322109', text: 'Make a birthday cake' },
-    { id: '498429', text: 'Write some poems' },
-    { id: '289989', text: 'start coding tonight' },
-];
-
 export const getNotes = async(dispatch) => {
     try {
         const snapShot = await firebase.firestore().collection('evernote').get();
         const data = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        console.log(data);
         dispatch({ type: GET_NOTES, payload: data });
     } catch (error) {
         dispatch({ type: NOTE_ERROR, payload: { code: error.code } });
@@ -25,8 +18,18 @@ export const getNotes = async(dispatch) => {
     }
 };
 
-export const createNote = (dispatch, newNote) =>
-    dispatch({ type: CREATE_NOTE, payload: newNote });
+export const createNote = async(dispatch, newNote) => {
+    try {
+        const docRef = await firebase
+            .firestore()
+            .collection('evernote')
+            .add(newNote);
+        dispatch({ type: CREATE_NOTE, payload: { id: docRef.id, ...newNote } });
+    } catch (error) {
+        dispatch({ type: NOTE_ERROR, payload: { code: error.code } });
+        throw error;
+    }
+};
 
 export const updateNote = (dispatch, id, newNote) =>
     dispatch({

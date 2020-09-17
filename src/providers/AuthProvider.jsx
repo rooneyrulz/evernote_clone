@@ -7,7 +7,7 @@ const AuthProvider = (props) => {
   const [authData, dispatch] = React.useReducer(AuthReducer, {
     loading: true,
     isAuthenticated: null,
-    user: null,
+    user: {},
   });
 
   return (

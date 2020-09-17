@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Context
+import AuthContext from '../context/AuthContext';
 import NoteContext from '../context/NoteContext';
 import { createNote } from '../actions/note';
 
@@ -8,7 +9,11 @@ import { createNote } from '../actions/note';
 import { noteStyles } from '../styles/note.module';
 
 const NewNote = () => {
-  const { everNote, dispatch } = React.useContext(NoteContext);
+  const {
+    authData: { user },
+  } = React.useContext(AuthContext);
+  const { dispatch } = React.useContext(NoteContext);
+
   const [newNote, setNewNote] = React.useState({ text: '' });
 
   const onHandleChange = (e) =>
@@ -16,7 +21,12 @@ const NewNote = () => {
 
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    createNote(dispatch, { id: Math.random().toString(), text: newNote.text });
+    const payload = {
+      text: newNote.text,
+      private: false,
+      owner: user.id,
+    };
+    createNote(dispatch, payload);
   };
 
   return (

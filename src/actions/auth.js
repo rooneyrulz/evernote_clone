@@ -13,7 +13,10 @@ export const loadUser = (dispatch) => {
     try {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                dispatch({ type: USER_LOADED, payload: user.email });
+                dispatch({
+                    type: USER_LOADED,
+                    payload: { id: user.uid, email: user.email },
+                });
             } else {
                 dispatch({ type: AUTH_ERROR });
             }
