@@ -15,11 +15,10 @@ const notes = [
 
 export const getNotes = async(dispatch) => {
     try {
-        await firebase
-            .firestore()
-            .collection('evernote')
-            .onSnapshot((res) => console.log(res));
-        dispatch({ type: GET_NOTES, payload: notes });
+        const snapShot = await firebase.firestore().collection('evernote').get();
+        const data = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        console.log(data);
+        dispatch({ type: GET_NOTES, payload: data });
     } catch (error) {
         dispatch({ type: NOTE_ERROR, payload: { code: error.code } });
         throw error;
