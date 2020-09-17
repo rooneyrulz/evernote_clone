@@ -11,6 +11,7 @@ import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import Dashboard from './pages/Dashboard';
 import Notes from './pages/Notes';
+import NotFound from './pages/NotFound';
 
 // Components
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -47,6 +48,7 @@ const App = () => {
             <PrivateRoute exact path='/notes' component={Notes} />
             <Route exact path='/sign-in' component={Login} />
             <Route exact path='/sign-up' component={Register} />
+            <Route exact component={NotFound} />
           </Switch>
         </main>
         <footer className='app__footer' style={layoutStyles.appFooter}>
