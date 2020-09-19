@@ -14,7 +14,10 @@ const NoteItem = ({ note }) => {
 
   const onHandleEdit = (e) => setIsEdit(true);
 
-  const onHandleUpdate = (id) => updateNote(dispatch, id, newNote);
+  const onHandleUpdate = (id) => {
+    updateNote(dispatch, id, newNote);
+    setIsEdit((prev) => false);
+  };
 
   const onHandleDelete = (id) => removeNote(dispatch, id);
 

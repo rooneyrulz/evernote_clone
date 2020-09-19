@@ -5,7 +5,7 @@ import AuthContext from '../../context/AuthContext';
 import { registerUser } from '../../actions/auth';
 
 // Styles
-import { authStyles } from '../../styles/auth.module';
+import authStyles from '../../styles/auth.module.css';
 
 const Register = (props) => {
   const {
@@ -25,42 +25,34 @@ const Register = (props) => {
   };
 
   return (
-    <div className='register' style={authStyles.authContainer}>
-      <h2 className='auth__heading' style={authStyles.authHeading}>
-        Sign Up
-      </h2>
-      <form
-        className='auth__form'
-        onSubmit={(e) => onRegister(e)}
-        style={authStyles.authForm}
-      >
+    <div className={authStyles.auth__ontainer}>
+      <h2 className={authStyles.auth__heading}>Sign Up</h2>
+      <form onSubmit={(e) => onRegister(e)} className={authStyles.auth__form}>
         <input
           id='email'
-          className='input__email'
           type='email'
           placeholder='Email'
           onChange={(e) => onChange(e)}
-          style={authStyles.inputEmail}
+          className={authStyles.input__email}
           required
         />
         <br />
         <input
           id='password'
-          className='input__password'
           type='password'
           placeholder='Password'
           onChange={(e) => onChange(e)}
-          style={authStyles.inputPassword}
+          className={authStyles.input__password}
           required
         />
         <br />
-        <button className='btn__auth' type='submit' style={authStyles.btnAuth}>
+        <button type='submit' className={authStyles.btn__auth}>
           Sign Up
         </button>
       </form>
-      <p className='auth__help__text' style={authStyles.authHelpText}>
+      <p className={authStyles.auth__help__text}>
         If you already have an account, <br /> Let's sign in{' '}
-        <Link to='/sign-in' style={authStyles.authHelpTextLink}>
+        <Link to='/sign-in' className={authStyles.auth__help__text__link}>
           here
         </Link>
       </p>

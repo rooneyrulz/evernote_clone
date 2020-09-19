@@ -25,6 +25,8 @@ const Notes = () => {
       <div className='noteItemContainer' style={noteStyles.noteItemContainer}>
         {everNote.loading ? (
           <Spinner />
+        ) : !everNote.notes.length ? (
+          <p>No notes found yet!</p>
         ) : (
           everNote.notes.map((note) => <NoteItem key={note.id} note={note} />)
         )}

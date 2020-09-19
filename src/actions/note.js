@@ -31,11 +31,25 @@ export const createNote = async(dispatch, newNote) => {
     }
 };
 
-export const updateNote = (dispatch, id, newNote) =>
-    dispatch({
-        type: UPDATE_NOTE,
-        payload: { id, payload: newNote },
-    });
+export const updateNote = async(dispatch, id, newNote) => {
+    try {
+        await firebase.firestore().collection('evernote').doc(id).update(newNote);
+        dispatch({
+            type: UPDATE_NOTE,
+            payload: { id, note: newNote },
+        });
+    } catch (error) {
+        dispatch({ type: NOTE_ERROR, payload: { code: error.code } });
+        throw error;
+    }
+};
 
-export const removeNote = (dispatch, id) =>
-    dispatch({ type: REMOVE_NOTE, payload: id });
+export const removeNote = async(dispatch, id) => {
+    try {
+        await firebase.firestore().collection('evernote').doc(id).delete();
+        dispatch({ type: REMOVE_NOTE, payload: id });
+    } catch (error) {
+        dispatch({ type: NOTE_ERROR, payload: { code: error.code } });
+        throw error;
+    }
+};
