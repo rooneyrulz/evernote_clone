@@ -5,7 +5,7 @@ import AuthContext from '../../context/AuthContext';
 import { registerUser } from '../../actions/auth';
 
 // Styles
-import authStyles from '../../styles/auth.module.css';
+import authStyles from '../../styles/Auth.module.css';
 
 const Register = (props) => {
   const {
@@ -25,7 +25,7 @@ const Register = (props) => {
   };
 
   return (
-    <div className={authStyles.auth__ontainer}>
+    <div className={authStyles.auth__container}>
       <h2 className={authStyles.auth__heading}>Sign Up</h2>
       <form onSubmit={(e) => onRegister(e)} className={authStyles.auth__form}>
         <input

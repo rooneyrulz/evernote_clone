@@ -13,8 +13,9 @@ import Dashboard from './pages/Dashboard';
 import Notes from './pages/Notes';
 import NotFound from './pages/NotFound';
 
-// Components
+// Components & Layouts
 import PrivateRoute from './components/routing/PrivateRoute';
+import Alert from './layouts/Alert';
 
 // Auth Context
 import AuthContext from './context/AuthContext';
@@ -22,7 +23,7 @@ import { loadUser } from './actions/auth';
 
 // Styles
 import { layoutStyles } from './styles/layout.module';
-import './global.css';
+import './Global.css';
 
 const App = () => {
   const {
@@ -43,6 +44,7 @@ const App = () => {
           <AppHeader />
         </header>
         <main className='app__main' style={layoutStyles.appMain}>
+          <Alert />
           <Switch>
             <PrivateRoute exact path='/' component={Dashboard} />
             <PrivateRoute exact path='/notes' component={Notes} />

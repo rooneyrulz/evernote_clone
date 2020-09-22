@@ -1,10 +1,11 @@
 import {
+    SET_ERROR,
+    REMOVE_ERROR,
     GET_NOTES,
     GET_PRIVATE_NOTES,
     CREATE_NOTE,
     UPDATE_NOTE,
     REMOVE_NOTE,
-    NOTE_ERROR,
 } from '../actions/types';
 
 export default (state, action) => {
@@ -48,11 +49,16 @@ export default (state, action) => {
                 notes: state.notes.filter((note) => note.id !== payload),
             };
 
-        case NOTE_ERROR:
+        case SET_ERROR:
             return {
                 ...state,
-                loading: false,
-                error: payload,
+                errors: [...state.errors, payload],
+            };
+
+        case REMOVE_ERROR:
+            return {
+                ...state,
+                errors: state.errors.filter((error) => error.id !== payload),
             };
 
         default:

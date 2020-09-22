@@ -8,7 +8,7 @@ const NoteProvider = (props) => {
     loading: true,
     notes: [],
     userNotes: [],
-    error: {},
+    errors: [],
   });
 
   return (

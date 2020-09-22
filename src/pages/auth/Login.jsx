@@ -5,7 +5,7 @@ import AuthContext from '../../context/AuthContext';
 import { loginUser } from '../../actions/auth';
 
 // Styles
-import authStyles from '../../styles/auth.module.css';
+import styles from '../../styles/Auth.module.css';
 
 const Login = (props) => {
   const {
@@ -25,15 +25,15 @@ const Login = (props) => {
   };
 
   return (
-    <div className={authStyles.auth__container}>
-      <h2 style={authStyles.auth__eading}>Sign In</h2>
-      <form onSubmit={(e) => onLogin(e)} className={authStyles.auth__form}>
+    <div className={styles.auth__container}>
+      <h2 className={styles.auth__heading}>Sign In</h2>
+      <form onSubmit={(e) => onLogin(e)} className={styles.auth__form}>
         <input
           id='email'
           type='email'
           placeholder='Email'
           onChange={(e) => onChange(e)}
-          className={authStyles.input__email}
+          className={styles.input__email}
           required
         />
         <br />
@@ -42,17 +42,17 @@ const Login = (props) => {
           type='password'
           placeholder='Password'
           onChange={(e) => onChange(e)}
-          className={authStyles.input__password}
+          className={styles.input__password}
           required
         />
         <br />
-        <button type='submit' className={authStyles.btn__auth}>
+        <button type='submit' className={styles.btn__auth}>
           Sign In
         </button>
       </form>
-      <p className={authStyles.auth__help__text}>
+      <p className={styles.auth__help__text}>
         If you did not already have an account, <br /> Let's create one{' '}
-        <Link to='/sign-up' className={authStyles.auth__help__text__link}>
+        <Link to='/sign-up' className={styles.auth__help__text__link}>
           here
         </Link>
       </p>

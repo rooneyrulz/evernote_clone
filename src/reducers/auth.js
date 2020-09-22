@@ -1,4 +1,6 @@
 import {
+    SET_ERROR,
+    REMOVE_ERROR,
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
@@ -37,6 +39,18 @@ export default (state, action) => {
                 loading: false,
                 isAuthenticated: false,
                 user: {},
+            };
+
+        case SET_ERROR:
+            return {
+                ...state,
+                errors: [...state.errors, payload],
+            };
+
+        case REMOVE_ERROR:
+            return {
+                ...state,
+                errors: state.errors.filter((error) => error.id !== payload),
             };
 
         default:

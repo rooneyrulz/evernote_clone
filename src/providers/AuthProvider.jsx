@@ -8,6 +8,7 @@ const AuthProvider = (props) => {
     loading: true,
     isAuthenticated: null,
     user: {},
+    errors: [],
   });
 
   return (
