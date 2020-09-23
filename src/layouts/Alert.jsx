@@ -8,15 +8,23 @@ const Alert = () => {
   const { everNote } = React.useContext(NoteContext);
 
   return authData.errors.length > 0 ? (
-    <div>
+    <div className='alert__container'>
       {authData.errors.map((error) => (
-        <p style={{ color: 'crimson' }}>{error.msg}</p>
+        <div key={error.id} className='alert'>
+          <p style={{ color: 'crimson' }} className='alert__text'>
+            {error.msg}
+          </p>
+        </div>
       ))}
     </div>
   ) : everNote.errors.length > 0 ? (
-    <div>
+    <div className='alert__container'>
       {everNote.errors.map((error) => (
-        <p style={{ color: 'crimson' }}>{error.msg}</p>
+        <div key={error.id} className='alert'>
+          <p style={{ color: 'crimson' }} className='alert__text'>
+            {error.msg}
+          </p>
+        </div>
       ))}
     </div>
   ) : null;

@@ -48,14 +48,6 @@ export const loginUser = async({ email, password }, dispatch, history) => {
         console.log(`Login Fail: ${error.code}`);
         dispatch({ type: LOGIN_FAIL });
 
-        // setError({
-        //         msg: error.code,
-        //         status: 401,
-        //         type: 'LOGIN_ERROR',
-        //     },
-        //     dispatch
-        // );
-
         const id = v4();
 
         dispatch({
@@ -90,14 +82,6 @@ export const registerUser = async({ email, password }, dispatch, history) => {
         console.log(`Login Fail: ${error.code}`);
         dispatch({ type: REGISTER_FAIL });
 
-        // setError({
-        //         msg: error.code,
-        //         status: 401,
-        //         type: 'LOGIN_ERROR',
-        //     },
-        //     dispatch
-        // );
-
         const id = v4();
 
         dispatch({
@@ -128,14 +112,6 @@ export const signOutUser = async(dispatch, history) => {
         dispatch({ type: LOGOUT });
     } catch (error) {
         console.log(`Signout Error: ${error.code}`);
-
-        // setError({
-        //         msg: error.code,
-        //         status: 401,
-        //         type: 'LOGIN_ERROR',
-        //     },
-        //     dispatch
-        // );
 
         const id = v4();
 

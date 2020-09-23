@@ -44,7 +44,9 @@ export default (state, action) => {
         case SET_ERROR:
             return {
                 ...state,
-                errors: [...state.errors, payload],
+                errors: state.errors.filter((error) => error.msg === payload.msg).length > 0 ?
+                    [...state.errors] :
+                    [...state.errors, payload],
             };
 
         case REMOVE_ERROR:
