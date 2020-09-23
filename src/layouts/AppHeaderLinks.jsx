@@ -26,6 +26,14 @@ const AppHeaderLinks = () => {
           >
             Dashboard
           </NavLink>
+          <NavLink
+            className='nav__link'
+            exact
+            to='/notes'
+            style={layoutStyles.navLink}
+          >
+            Notes
+          </NavLink>
           <Link
             className='nav__link'
             to=''

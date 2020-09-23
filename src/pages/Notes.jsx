@@ -17,7 +17,7 @@ const Notes = () => {
 
   React.useEffect(() => {
     getNotes(dispatch);
-  }, []);
+  });
 
   return (
     <div className='notes' style={noteStyles.noteContainer}>
