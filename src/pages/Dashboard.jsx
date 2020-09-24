@@ -11,8 +11,8 @@ const Dashboard = () => {
 
   return (
     <div className={styles.dashboard__container}>
-      <h2>Dashboard</h2>
-      {user && <p>{user.email}</p>}
+      <h1 className={styles.dashboard__heading}>Evernote Clone</h1>
+      {user && <p> Hello, {user.email}</p>}
     </div>
   );
 };

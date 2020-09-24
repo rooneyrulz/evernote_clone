@@ -7,10 +7,9 @@ import { getNotes } from '../actions/note';
 // Components & Layouts
 import NoteItem from '../components/NoteItem';
 import NewNote from '../components/NewNote';
-import Spinner from '../layouts/Spinner';
 
 // Styles
-import styles from '../styles/note.module.css';
+import styles from '../styles/Note.module.css';
 
 const Notes = () => {
   const { everNote, dispatch } = React.useContext(NoteContext);
@@ -24,7 +23,7 @@ const Notes = () => {
       <NewNote />
       <div className={styles.note_item_container}>
         {everNote.loading ? (
-          <Spinner />
+          <p>Loading..</p>
         ) : !everNote.notes.length ? (
           <p>No notes found yet!</p>
         ) : (

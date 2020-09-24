@@ -11,7 +11,7 @@ const AppHeader = () => {
   return (
     <div className={styles.nav}>
       <div className={styles.nav__header}>
-        <Link className={styles.nav__link} to='/'>
+        <Link className={`${styles.nav__link} ${styles.nav__banner}`} to='/'>
           Evernote Clone
         </Link>
       </div>

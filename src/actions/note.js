@@ -24,18 +24,16 @@ export const createNote = async(dispatch, newNote) => {
             .firestore()
             .collection('evernote')
             .add(newNote);
-        if (docRef.id) {
-            const snapShot = await firebase
-                .firestore()
-                .collection('evernote')
-                .doc(docRef.id)
-                .get();
-            const data = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-            dispatch({ type: CREATE_NOTE, payload: data });
-        }
+        const snapShot = await firebase
+            .firestore()
+            .collection('evernote')
+            .doc(docRef.id)
+            .get();
+        const data = snapShot.map((doc) => ({ id: doc.id, ...doc.data() }));
+        dispatch({ type: CREATE_NOTE, payload: data });
     } catch (error) {
         setError({
-                msg: error.code ? error.code : 'Something went wrong creating a note',
+                msg: error.code,
                 status: 500,
                 type: 'CREATE_NOTE_ERROR',
             },

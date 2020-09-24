@@ -26,7 +26,7 @@ const Login = (props) => {
 
   return (
     <div className={styles.auth__container}>
-      <h2 className={styles.auth__heading}>Sign In</h2>
+      <h1 className={styles.auth__heading}>Sign In</h1>
       <form onSubmit={(e) => onLogin(e)} className={styles.auth__form}>
         <input
           id='email'

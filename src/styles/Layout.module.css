@@ -19,6 +19,11 @@
 
 .nav__header {}
 
+.nav__banner {
+    font-size: 1.2rem;
+    font-family: 'Operator Mono';
+}
+
 .nav__link {
     text-decoration: none;
     color: #fff;
@@ -27,7 +32,6 @@
 
 .app__main {
     width: 90%;
-    height: 80vh;
     margin: auto;
 }
 
@@ -44,7 +48,6 @@
 
 .app__footer {
     width: 90%;
-    height: 10vh;
     margin: auto;
     border-top: 1px #4c2a4c solid;
 }
@@ -55,4 +58,8 @@
 
 .footer__text {
     color: #fff;
+}
+
+.footer__text__badge {
+    font-family: 'Operator Mono';
 }

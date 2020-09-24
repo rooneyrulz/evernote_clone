@@ -7,3 +7,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.dashboard__heading {
+    font-size: 3rem;
+}

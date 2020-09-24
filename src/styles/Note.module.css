@@ -1,6 +1,5 @@
 .note__container {
     width: 60%;
-    height: 80vh;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -20,10 +19,10 @@
     border: none;
     outline: none;
     font-size: 1rem;
-    padding: 5px 10px;
-    border-radius: 0.5em 0 0 0.5em;
-    color: #f4f4f4;
-    background: #6d3d6d;
+    padding: 4px 10px;
+    border-radius: 0.8em 0 0 0.8em;
+    color: #111;
+    background: #fff;
 }
 
 .btn__note {
@@ -33,8 +32,8 @@
     outline: none;
     cursor: pointer;
     font-size: 1rem;
-    padding: 6px 10px;
-    border-radius: 0 0.5em 0.5em 0;
+    padding: 4px 10px;
+    border-radius: 0 0.8em 0.8em 0;
     color: #fff;
     background: #4c2a4c;
 }
@@ -42,7 +41,6 @@
 .note__item__container {
     width: 100%;
     margin: auto;
-    overflow-x: auto;
 }
 
 .note__item {

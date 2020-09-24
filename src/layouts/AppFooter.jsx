@@ -7,7 +7,8 @@ const AppFooter = () => {
   return (
     <div className={styles.footer__container}>
       <p className={styles.footer__text}>
-        <strong>Evernote Clone</strong> &copy; by devrulz
+        <strong className={styles.footer__text__badge}>Evernote Clone</strong>{' '}
+        &copy; by devrulz
       </p>
     </div>
   );

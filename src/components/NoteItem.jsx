@@ -5,7 +5,7 @@ import NoteContext from '../context/NoteContext';
 import { updateNote, removeNote } from '../actions/note';
 
 // Styles
-import styles from '../styles/note.module.css';
+import styles from '../styles/Note.module.css';
 
 const NoteItem = ({ note }) => {
   const { dispatch } = React.useContext(NoteContext);

@@ -10,6 +10,7 @@
 
 .auth__heading {
     text-align: center;
+    font-size: 2rem;
 }
 
 .auth__form {
@@ -17,41 +18,41 @@
 }
 
 .input__email {
-    width: 300px;
-    height: 50px;
+    width: 350px;
+    height: 70px;
     border: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 5px 10px;
     margin-bottom: 1rem;
-    border-radius: 0.5em;
-    color: #f4f4f4;
-    background: #6d3d6d;
+    border-radius: 0.8em;
+    color: #111;
+    background: #fff;
 }
 
 .input__password {
-    width: 300px;
-    height: 50px;
+    width: 350px;
+    height: 70px;
     border: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 5px 10px;
     margin-bottom: 1rem;
-    border-radius: 0.5em;
-    color: #f4f4f4;
-    background: #6d3d6d;
+    border-radius: 0.8em;
+    color: #111;
+    background: #fff;
 }
 
 .btn__auth {
-    width: 300px;
-    height: 50px;
+    width: 350px;
+    height: 70px;
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 5px 10px;
     margin-bottom: 1rem;
-    border-radius: 0.5em;
+    border-radius: 0.8em;
     color: #fff;
     background: #4c2a4c;
 }

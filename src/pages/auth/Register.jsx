@@ -26,7 +26,7 @@ const Register = (props) => {
 
   return (
     <div className={authStyles.auth__container}>
-      <h2 className={authStyles.auth__heading}>Sign Up</h2>
+      <h1 className={authStyles.auth__heading}>Sign Up</h1>
       <form onSubmit={(e) => onRegister(e)} className={authStyles.auth__form}>
         <input
           id='email'
