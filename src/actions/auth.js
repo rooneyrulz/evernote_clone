@@ -7,11 +7,8 @@ import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     LOGOUT,
-    SET_ERROR,
-    REMOVE_ERROR,
 } from './types';
 import setError from './error';
-import { v4 } from 'uuid';
 
 export const loadUser = (dispatch) => {
     try {
@@ -26,10 +23,9 @@ export const loadUser = (dispatch) => {
             }
         });
     } catch (error) {
-        console.log(`AuthError: ${error.code}`);
         dispatch({ type: AUTH_ERROR });
         setError({
-                msg: error.code,
+                msg: error.message ? error.message : 'Unauthorized',
                 status: 401,
                 type: 'AUTH_ERROR',
             },
@@ -45,27 +41,13 @@ export const loginUser = async({ email, password }, dispatch, history) => {
         dispatch({ type: LOGIN_SUCCESS });
         history.push('/');
     } catch (error) {
-        console.log(`Login Fail: ${error.code}`);
         dispatch({ type: LOGIN_FAIL });
-
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong login',
                 status: 500,
                 type: 'LOGIN_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 
@@ -79,58 +61,30 @@ export const registerUser = async({ email, password }, dispatch, history) => {
         dispatch({ type: REGISTER_SUCCESS });
         history.push('/');
     } catch (error) {
-        console.log(`Login Fail: ${error.code}`);
         dispatch({ type: REGISTER_FAIL });
-
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong registering',
                 status: 500,
                 type: 'REGISTER_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 
     loadUser(dispatch);
 };
 
-export const signOutUser = async(dispatch, history) => {
+export const signOutUser = async(dispatch) => {
     try {
         await firebase.auth().signOut();
         dispatch({ type: LOGOUT });
     } catch (error) {
-        console.log(`Signout Error: ${error.code}`);
-
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong logingout',
                 status: 500,
                 type: 'LOGOUT_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 };

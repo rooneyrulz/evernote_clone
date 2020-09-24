@@ -1,13 +1,6 @@
 import firebase from '../config/firebase.config';
-import {
-    SET_ERROR,
-    REMOVE_ERROR,
-    GET_NOTES,
-    CREATE_NOTE,
-    UPDATE_NOTE,
-    REMOVE_NOTE,
-} from './types';
-import { v4 } from 'uuid';
+import { GET_NOTES, CREATE_NOTE, UPDATE_NOTE, REMOVE_NOTE } from './types';
+import setError from './error';
 
 export const getNotes = async(dispatch) => {
     try {
@@ -15,24 +8,12 @@ export const getNotes = async(dispatch) => {
         const data = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         dispatch({ type: GET_NOTES, payload: data });
     } catch (error) {
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong getting notes',
                 status: 500,
                 type: 'GET_NOTES_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 };
@@ -43,26 +24,22 @@ export const createNote = async(dispatch, newNote) => {
             .firestore()
             .collection('evernote')
             .add(newNote);
-        dispatch({ type: CREATE_NOTE, payload: { id: docRef.id, ...newNote } });
+        if (docRef.id) {
+            const snapShot = await firebase
+                .firestore()
+                .collection('evernote')
+                .doc(docRef.id)
+                .get();
+            const data = snapShot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+            dispatch({ type: CREATE_NOTE, payload: data });
+        }
     } catch (error) {
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong creating a note',
                 status: 500,
                 type: 'CREATE_NOTE_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 };
@@ -75,24 +52,12 @@ export const updateNote = async(dispatch, id, newNote) => {
             payload: { id, note: newNote },
         });
     } catch (error) {
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong updating a note',
                 status: 500,
                 type: 'UPDATE_NOTE_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 };
@@ -102,24 +67,12 @@ export const removeNote = async(dispatch, id) => {
         await firebase.firestore().collection('evernote').doc(id).delete();
         dispatch({ type: REMOVE_NOTE, payload: id });
     } catch (error) {
-        const id = v4();
-
-        dispatch({
-            type: SET_ERROR,
-            payload: {
-                id,
-                msg: error.code,
+        setError({
+                msg: error.code ? error.code : 'Something went wrong removing a note',
                 status: 500,
                 type: 'REMOVE_NOTE_ERROR',
             },
-        });
-        setTimeout(
-            () =>
-            dispatch({
-                type: REMOVE_ERROR,
-                payload: id,
-            }),
-            5000
+            dispatch
         );
     }
 };
