@@ -2,13 +2,13 @@ import React from 'react';
 import SpinnerGIF from '../assets/Spinner.gif';
 
 // Styles
-import { layoutStyles } from '../styles/layout.module';
+import styles from '../styles/Layout.module.css';
 
 const Spinner = () => {
   return (
-    <div className='spinner__container' style={layoutStyles.spinnerContainer}>
+    <div className={styles.spinner__container}>
       <img
-        style={layoutStyles.spinnerGIF}
+        className={styles.spinner__GIF}
         src={SpinnerGIF}
         alt='loading spinner'
       />

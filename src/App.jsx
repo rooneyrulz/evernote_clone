@@ -22,7 +22,7 @@ import AuthContext from './context/AuthContext';
 import { loadUser } from './actions/auth';
 
 // Styles
-import { layoutStyles } from './styles/layout.module';
+import styles from './styles/Layout.module.css';
 import './Global.css';
 
 const App = () => {
@@ -40,10 +40,10 @@ const App = () => {
   ) : (
     <BrowserRouter>
       <>
-        <header className='app__header' style={layoutStyles.appHeader}>
+        <header className={styles.app__header}>
           <AppHeader />
         </header>
-        <main className='app__main' style={layoutStyles.appMain}>
+        <main className={styles.app__main}>
           <Alert />
           <Switch>
             <PrivateRoute exact path='/' component={Dashboard} />
@@ -53,7 +53,7 @@ const App = () => {
             <Route exact component={NotFound} />
           </Switch>
         </main>
-        <footer className='app__footer' style={layoutStyles.appFooter}>
+        <footer className={styles.app__footer}>
           <AppFooter />
         </footer>
       </>

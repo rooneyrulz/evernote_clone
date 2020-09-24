@@ -1,12 +1,12 @@
 import React from 'react';
 
 // Styles
-import { layoutStyles } from '../styles/layout.module';
+import styles from '../styles/Layout.module.css';
 
 const AppFooter = () => {
   return (
-    <div className='footer' style={layoutStyles.footerContainer}>
-      <p className='footer__text' style={layoutStyles.footerText}>
+    <div className={styles.footer__container}>
+      <p className={styles.footer__text}>
         <strong>Evernote Clone</strong> &copy; by devrulz
       </p>
     </div>

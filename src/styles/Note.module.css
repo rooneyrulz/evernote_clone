@@ -1,0 +1,75 @@
+.note__container {
+    width: 60%;
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.new__note__container {
+    margin: 1rem auto;
+    width: 100%;
+}
+
+.note__form {}
+
+.note__input {
+    width: 80%;
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 0.5em 0 0 0.5em;
+    color: #f4f4f4;
+    background: #6d3d6d;
+}
+
+.btn__note {
+    width: 20%;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 6px 10px;
+    border-radius: 0 0.5em 0.5em 0;
+    color: #fff;
+    background: #4c2a4c;
+}
+
+.note__item__container {
+    width: 100%;
+    margin: auto;
+    overflow-x: auto;
+}
+
+.note__item {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #4c2a4c;
+    padding: 1px 10px;
+    margin-bottom: 0.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 0.5em;
+}
+
+.note__edit__input {
+    height: 60px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 0.5em 0 0 0.5em;
+    color: #f4f4f4;
+    background: #4c2a4c;
+}
+
+.note__item__left {}
+
+.note__item__right {}

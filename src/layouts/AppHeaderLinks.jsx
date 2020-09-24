@@ -6,7 +6,7 @@ import AuthContext from '../context/AuthContext';
 import { signOutUser } from '../actions/auth';
 
 // Styles
-import { layoutStyles } from '../styles/layout.module';
+import styles from '../styles/Layout.module.css';
 
 const AppHeaderLinks = () => {
   const {
@@ -18,47 +18,26 @@ const AppHeaderLinks = () => {
     <div className='nav__link__wrapper'>
       {isAuthenticated ? (
         <>
-          <NavLink
-            className='nav__link'
-            exact
-            to='/'
-            style={layoutStyles.navLink}
-          >
+          <NavLink exact to='/' className={styles.nav__link}>
             Dashboard
           </NavLink>
-          <NavLink
-            className='nav__link'
-            exact
-            to='/notes'
-            style={layoutStyles.navLink}
-          >
+          <NavLink exact to='/notes' className={styles.nav__link}>
             Notes
           </NavLink>
           <Link
-            className='nav__link'
             to=''
             onClick={(e) => signOutUser(dispatch)}
-            style={layoutStyles.navLink}
+            className={styles.nav__link}
           >
             Sign Out
           </Link>
         </>
       ) : (
         <>
-          <NavLink
-            className='nav__link'
-            exact
-            to='/sign-up'
-            style={layoutStyles.navLink}
-          >
+          <NavLink exact to='/sign-up' className={styles.nav__link}>
             Sign Up
           </NavLink>
-          <NavLink
-            className='nav__link'
-            exact
-            to='/sign-in'
-            style={layoutStyles.navLink}
-          >
+          <NavLink exact to='/sign-in' className={styles.nav__link}>
             Sign In
           </NavLink>
         </>

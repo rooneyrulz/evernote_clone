@@ -2,7 +2,7 @@ import React from 'react';
 import AuthContext from '../context/AuthContext';
 
 // Styles
-import { dashboardStyles } from '../styles/dashboard.module';
+import styles from '../styles/Dashboard.module.css';
 
 const Dashboard = () => {
   const {
@@ -10,7 +10,7 @@ const Dashboard = () => {
   } = React.useContext(AuthContext);
 
   return (
-    <div className='dashboard' style={dashboardStyles.dashboardContainer}>
+    <div className={styles.dashboard__container}>
       <h2>Dashboard</h2>
       {user && <p>{user.email}</p>}
     </div>

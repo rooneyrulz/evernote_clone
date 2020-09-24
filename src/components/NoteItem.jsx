@@ -5,7 +5,7 @@ import NoteContext from '../context/NoteContext';
 import { updateNote, removeNote } from '../actions/note';
 
 // Styles
-import { noteStyles } from '../styles/note.module';
+import styles from '../styles/note.module.css';
 
 const NoteItem = ({ note }) => {
   const { dispatch } = React.useContext(NoteContext);
@@ -29,8 +29,8 @@ const NoteItem = ({ note }) => {
   }, []);
 
   return (
-    <div style={noteStyles.noteItem}>
-      <div style={noteStyles.noteItemLeft}>
+    <div className={styles.note__item}>
+      <div className={styles.note__item__left}>
         {isEdit ? (
           <input
             id='text'
@@ -38,13 +38,13 @@ const NoteItem = ({ note }) => {
             autoFocus
             value={newNote.text}
             onChange={(e) => onHandleChange(e)}
-            style={noteStyles.noteEditInput}
+            className={styles.note__edit__input}
           />
         ) : (
           <p>{note.text}</p>
         )}
       </div>
-      <div style={noteStyles.noteItemRight}>
+      <div className={styles.note__item__right}>
         {isEdit ? (
           <button onClick={(e) => onHandleUpdate(note.id)}>Update</button>
         ) : (

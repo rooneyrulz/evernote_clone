@@ -6,7 +6,7 @@ import NoteContext from '../context/NoteContext';
 import { createNote } from '../actions/note';
 
 // Styles
-import { noteStyles } from '../styles/note.module';
+import styles from '../styles/note.module.css';
 
 const NewNote = () => {
   const {
@@ -30,15 +30,15 @@ const NewNote = () => {
   };
 
   return (
-    <div className='new__note' style={noteStyles.newNoteContainer}>
-      <form style={noteStyles.noteForm} onSubmit={(e) => onHandleSubmit(e)}>
+    <div className={styles.new__note__container}>
+      <form className={styles.note__form} onSubmit={(e) => onHandleSubmit(e)}>
         <input
           id='text'
           type='text'
-          style={noteStyles.noteInput}
+          className={styles.note__input}
           onChange={(e) => onHandleChange(e)}
         />
-        <button type='submit' style={noteStyles.btnNote}>
+        <button type='submit' className={styles.btn__note}>
           Add
         </button>
       </form>

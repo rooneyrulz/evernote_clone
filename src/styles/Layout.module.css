@@ -1,0 +1,58 @@
+.app__header {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    background: #4c2a4c;
+    box-shadow: 1px 1px 4px #2c192c;
+}
+
+.nav {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    margin: 0 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav__header {}
+
+.nav__link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 10px;
+}
+
+.app__main {
+    width: 90%;
+    height: 80vh;
+    margin: auto;
+}
+
+.spinner__container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner__GIF {
+    width: 40px;
+}
+
+.app__footer {
+    width: 90%;
+    height: 10vh;
+    margin: auto;
+    border-top: 1px #4c2a4c solid;
+}
+
+.footer__container {
+    text-align: center;
+}
+
+.footer__text {
+    color: #fff;
+}

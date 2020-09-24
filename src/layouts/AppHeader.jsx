@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 import AppHeaderLinks from './AppHeaderLinks';
 
 // Styles
-import { layoutStyles } from '../styles/layout.module';
+import styles from '../styles/Layout.module.css';
 
 const AppHeader = () => {
   return (
-    <div className='nav' style={layoutStyles.nav}>
-      <div className='nav__header' style={layoutStyles.navHeader}>
-        <Link className='nav__link' to='/' style={layoutStyles.navLink}>
+    <div className={styles.nav}>
+      <div className={styles.nav__header}>
+        <Link className={styles.nav__link} to='/'>
           Evernote Clone
         </Link>
       </div>

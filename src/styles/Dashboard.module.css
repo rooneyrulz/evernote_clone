@@ -1,0 +1,9 @@
+.dashboard__container {
+    width: 60%;
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
