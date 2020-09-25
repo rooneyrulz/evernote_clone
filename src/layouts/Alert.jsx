@@ -9,23 +9,29 @@ const Alert = () => {
 
   return authData.errors.length > 0 ? (
     <div className='alert__container'>
-      {authData.errors.map((error) => (
-        <div key={error.id} className='alert'>
-          <p style={{ color: 'crimson' }} className='alert__text'>
-            {error.msg}
-          </p>
-        </div>
-      ))}
+      {authData.errors.map(
+        (error) =>
+          error.msg && (
+            <div key={error.id} className='alert'>
+              <p style={{ color: 'crimson' }} className='alert__text'>
+                {error.msg}
+              </p>
+            </div>
+          )
+      )}
     </div>
   ) : everNote.errors.length > 0 ? (
     <div className='alert__container'>
-      {everNote.errors.map((error) => (
-        <div key={error.id} className='alert'>
-          <p style={{ color: 'crimson' }} className='alert__text'>
-            {error.msg}
-          </p>
-        </div>
-      ))}
+      {everNote.errors.map(
+        (error) =>
+          error.msg && (
+            <div key={error.id} className='alert'>
+              <p style={{ color: 'crimson' }} className='alert__text'>
+                {error.msg}
+              </p>
+            </div>
+          )
+      )}
     </div>
   ) : null;
 };
