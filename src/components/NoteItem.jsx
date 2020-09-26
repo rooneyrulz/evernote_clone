@@ -2,12 +2,17 @@ import React from 'react';
 
 // Context
 import NoteContext from '../context/NoteContext';
+import AuthContext from '../context/AuthContext';
 import { updateNote, removeNote } from '../actions/note';
 
 // Styles
 import styles from '../styles/Note.module.css';
 
 const NoteItem = ({ note }) => {
+  const {
+    authData: { user },
+  } = React.useContext(AuthContext);
+
   const { dispatch } = React.useContext(NoteContext);
   const [isEdit, setIsEdit] = React.useState(false);
   const [newNote, setNewNote] = React.useState({});
@@ -37,6 +42,7 @@ const NoteItem = ({ note }) => {
             type='text'
             autoFocus
             value={newNote.text}
+            placeholder='Type new note..'
             onChange={(e) => onHandleChange(e)}
             className={styles.note__edit__input}
           />
@@ -44,15 +50,17 @@ const NoteItem = ({ note }) => {
           <p>{note.text}</p>
         )}
       </div>
-      <div className={styles.note__item__right}>
-        {isEdit ? (
-          <button onClick={(e) => onHandleUpdate(note.id)}>Update</button>
-        ) : (
-          <button onClick={(e) => onHandleEdit(e)}>Edit</button>
-        )}
+      {note.owner === user.id && (
+        <div className={styles.note__item__right}>
+          {isEdit ? (
+            <button onClick={(e) => onHandleUpdate(note.id)}>Update</button>
+          ) : (
+            <button onClick={(e) => onHandleEdit(e)}>Edit</button>
+          )}
 
-        <button onClick={(e) => onHandleDelete(note.id)}>Remove</button>
-      </div>
+          <button onClick={(e) => onHandleDelete(note.id)}>Remove</button>
+        </div>
+      )}
     </div>
   );
 };

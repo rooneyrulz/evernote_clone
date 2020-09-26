@@ -35,6 +35,7 @@ const NewNote = () => {
         <input
           id='text'
           type='text'
+          placeholder="Let's create a note.."
           className={styles.note__input}
           onChange={(e) => onHandleChange(e)}
         />
