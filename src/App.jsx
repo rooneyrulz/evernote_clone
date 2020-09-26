@@ -1,21 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-// Layouts
-import AppHeader from './layouts/AppHeader';
-import AppFooter from './layouts/AppFooter';
-import Spinner from './layouts/Spinner';
-
-// Pages
-import Register from './pages/auth/Register';
-import Login from './pages/auth/Login';
-import Dashboard from './pages/Dashboard';
-import Notes from './pages/Notes';
-import NotFound from './pages/NotFound';
-
-// Components & Layouts
+// Pages | Layouts | Components
+import { Login, Register, Dashboard, Notes, NotFound } from './pages';
+import { AppHeader, AppFooter, Spinner, Alert } from './layouts';
 import PrivateRoute from './components/routing/PrivateRoute';
-import Alert from './layouts/Alert';
 
 // Auth Context
 import AuthContext from './context/AuthContext';
