@@ -1,12 +1,11 @@
 import React from 'react';
 
-// Context
-import NoteContext from '../context/NoteContext';
+// Contexts
+import { NoteContext } from '../context';
 import { getNotes } from '../actions/note';
 
-// Components & Layouts
-import NoteItem from '../components/NoteItem';
-import NewNote from '../components/NewNote';
+// Components
+import { NewNote, NoteItem } from '../components';
 
 // Styles
 import styles from '../styles/Note.module.css';

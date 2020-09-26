@@ -1,5 +1,7 @@
 import React from 'react';
-import AuthContext from '../context/AuthContext';
+
+// Contexts
+import { AuthContext } from '../context';
 
 // Styles
 import styles from '../styles/Dashboard.module.css';

@@ -4,10 +4,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Pages | Layouts | Components
 import { Login, Register, Dashboard, Notes, NotFound } from './pages';
 import { AppHeader, AppFooter, Spinner, Alert } from './layouts';
-import PrivateRoute from './components/routing/PrivateRoute';
+import { PrivateRoute } from './components';
 
-// Auth Context
-import AuthContext from './context/AuthContext';
+// Contexts
+import { AuthContext } from './context';
 import { loadUser } from './actions/auth';
 
 // Styles

@@ -1,8 +1,7 @@
 import React from 'react';
 
-// Context
-import NoteContext from '../context/NoteContext';
-import AuthContext from '../context/AuthContext';
+// Contexts
+import { AuthContext, NoteContext } from '../context';
 import { updateNote, removeNote } from '../actions/note';
 
 // Styles

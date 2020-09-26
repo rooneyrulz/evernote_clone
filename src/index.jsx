@@ -4,8 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Providers
-import AuthProvider from './providers/AuthProvider';
-import NoteProvider from './providers/NoteProvider';
+import { AuthProvider, NoteProvider } from './providers';
 
 ReactDOM.render(
   <React.StrictMode>

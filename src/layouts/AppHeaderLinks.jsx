@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 // Context
-import AuthContext from '../context/AuthContext';
+import { AuthContext } from '../context';
 import { signOutUser } from '../actions/auth';
 
 // Styles

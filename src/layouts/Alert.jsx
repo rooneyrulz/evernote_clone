@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AuthContext from '../context/AuthContext';
-import NoteContext from '../context/NoteContext';
+// Contexts
+import { AuthContext, NoteContext } from '../context';
 
 const Alert = () => {
   const { authData } = React.useContext(AuthContext);
