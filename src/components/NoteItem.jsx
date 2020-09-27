@@ -11,8 +11,8 @@ const NoteItem = ({ note }) => {
   const {
     authData: { user },
   } = React.useContext(AuthContext);
-
   const { dispatch } = React.useContext(NoteContext);
+
   const [isEdit, setIsEdit] = React.useState(false);
   const [newNote, setNewNote] = React.useState({});
 
